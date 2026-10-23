@@ -1,10 +1,13 @@
 const env = import.meta.env;
 
 export const site = {
-  name: 'Impact an Eye Every Day',
+  name: 'iTester',
   shortName: 'Ahaan',
   email: env.PUBLIC_CONTACT_EMAIL ?? 'hello@example.com',
   plausibleDomain: env.PUBLIC_PLAUSIBLE_DOMAIN ?? '',
+  // Direct download of the test build (e.g. an .apk file); leave empty to link the header button to #download.
+  apkUrl: env.PUBLIC_APK_URL ?? '',
+  youtubeId: env.PUBLIC_YOUTUBE_ID ?? '',
   notifyFormUrl: env.PUBLIC_NOTIFY_FORM_URL ?? '',
   stores: {
     play: env.PUBLIC_PLAY_STORE_URL ?? '',
@@ -19,12 +22,3 @@ export const published = Boolean(site.stores.play || site.stores.apple);
 /** Real quotes only, with written permission. Leave empty until supplied. */
 export const testimonials: { quote: string; name: string; role: 'Patient' | 'Caregiver' | 'Doctor' }[] = [];
 
-/** Real dates only. Entries without a date are not rendered. */
-export const timeline: { date: string; title: string; text: string }[] = [
-  {
-    date: 'March 2026',
-    title: 'Research and product requirements',
-    text: 'Wrote the product requirements: who the app is for, how eye-drop schedules work, and what makes a reminder impossible to miss.',
-  },
-  // TODO(content owner): add design, build and testing milestones with real dates.
-];

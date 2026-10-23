@@ -1,4 +1,4 @@
-# Impact an Eye Every Day: marketing site
+# iTester: marketing site
 
 Static Astro + Tailwind site: landing page (`/`), About Ahaan (`/about`), and a stub `/privacy`.
 

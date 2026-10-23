@@ -1,0 +1,27 @@
+---
+import { site } from '../config/site';
+import { getDict } from '../i18n';
+const t = getDict().video;
+const id = site.youtubeId;
+---
+{id && (
+  <section id="video" class="section" aria-labelledby="video-h">
+    <div class="container-page text-center">
+      <h2 id="video-h" class="text-3xl sm:text-4xl">{t.title}</h2>
+      <p class="mx-auto mt-4 max-w-xl">{t.text}</p>
+      <!-- Click-to-load: nothing from YouTube loads (and no autoplay) until the visitor presses play. -->
+      <div class="mx-auto mt-8 aspect-video max-w-3xl overflow-hidden rounded-2xl bg-ink" data-yt={id}>
+        <button type="button" class="relative h-full w-full" aria-label={t.play}>
+          <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" width="480" height="360" loading="lazy" class="h-full w-full object-cover" />
+          <span aria-hidden="true" class="absolute inset-0 m-auto flex h-20 w-20 items-center justify-center rounded-full bg-white text-3xl text-primary">▶</span>
+        </button>
+      </div>
+    </div>
+  </section>
+)}
+<script>
+  document.querySelectorAll<HTMLElement>('[data-yt]').forEach((box) =>
+    box.querySelector('button')?.addEventListener('click', () => {
+      box.innerHTML = `<iframe class="h-full w-full" src="https://www.youtube-nocookie.com/embed/${box.dataset.yt}?autoplay=1" title="${box.getAttribute('data-title') ?? 'Video'}" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+    }));
+</script>

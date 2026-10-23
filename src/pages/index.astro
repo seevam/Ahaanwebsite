@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import PhoneMock from '../components/PhoneMock.astro';
 import Download from '../components/Download.astro';
+import Video from '../components/Video.astro';
 import Testimonials from '../components/Testimonials.astro';
 import { getDict } from '../i18n';
 const t = getDict();
@@ -52,6 +53,8 @@ const stepVariants = ['add', 'alarm', 'caregiver'] as const;
       </ol>
     </div>
   </section>
+
+  <Video />
 
   <section id="features" class="section" aria-labelledby="features-h">
     <div class="container-page">

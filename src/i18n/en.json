@@ -1,11 +1,18 @@
 {
   "meta": {
-    "homeTitle": "Impact an Eye Every Day: eye drop reminders that never let you miss a dose",
+    "homeTitle": "iTester: eye drop reminders that never let you miss a dose",
     "homeDescription": "A simple app that reminds you when to take each eye drop, with the right wait between drops, and keeps a caregiver in sync.",
     "aboutTitle": "About Ahaan: why this app exists",
-    "aboutDescription": "The story behind Impact an Eye Every Day, the eye medication reminder app built by Ahaan."
+    "aboutDescription": "The story behind iTester, the eye medication reminder app built by Ahaan."
   },
-  "nav": { "features": "Features", "about": "About", "download": "Download", "menu": "Menu", "close": "Close menu", "skip": "Skip to main content" },
+  "nav": {
+    "features": "Features",
+    "about": "About",
+    "download": "Download",
+    "menu": "Menu",
+    "close": "Close menu",
+    "skip": "Skip to main content"
+  },
   "hero": {
     "title": "Never miss an eye drop again",
     "subtitle": "When you use several eye drops, it is hard to remember each dose and the wait between them. This app does it for you.",
@@ -17,45 +24,96 @@
     "title": "Eye drops are harder than they look",
     "text": "Many eye conditions need two, three or more different drops every day. Each one has its own time, and some must wait several minutes after the one before. It is easy to lose track.",
     "cards": [
-      { "title": "Forgetting a dose", "text": "A busy day or a new routine, and a dose slips by without anyone noticing." },
-      { "title": "Getting the wait wrong", "text": "Drops put in too close together wash each other out, so neither works as well." },
-      { "title": "Mixing up bottles", "text": "Small bottles with similar caps and labels look almost the same." }
+      {
+        "title": "Forgetting a dose",
+        "text": "A busy day or a new routine, and a dose slips by without anyone noticing."
+      },
+      {
+        "title": "Getting the wait wrong",
+        "text": "Drops put in too close together wash each other out, so neither works as well."
+      },
+      {
+        "title": "Mixing up bottles",
+        "text": "Small bottles with similar caps and labels look almost the same."
+      }
     ]
   },
   "solution": {
     "title": "One app, one clear plan",
     "text": "Add your drops once. The app works out the schedule, the right gap between drops, and tells you and your caregiver what to do next.",
     "steps": [
-      { "title": "Add your drops", "text": "Enter each medicine and take a photo of the bottle.", "alt": "Screen for adding an eye drop with a photo of its bottle." },
-      { "title": "Get reminded at the right time", "text": "A loud, full-screen alarm for each drop, spaced correctly.", "alt": "Full-screen reminder with large Taken and Snooze buttons." },
-      { "title": "Caregiver stays in sync", "text": "A family member can see what was taken and what was missed.", "alt": "Caregiver view listing today's doses as taken or missed." }
+      {
+        "title": "Add your drops",
+        "text": "Enter each medicine and take a photo of the bottle.",
+        "alt": "Screen for adding an eye drop with a photo of its bottle."
+      },
+      {
+        "title": "Get reminded at the right time",
+        "text": "A loud, full-screen alarm for each drop, spaced correctly.",
+        "alt": "Full-screen reminder with large Taken and Snooze buttons."
+      },
+      {
+        "title": "Caregiver stays in sync",
+        "text": "A family member can see what was taken and what was missed.",
+        "alt": "Caregiver view listing today's doses as taken or missed."
+      }
     ]
   },
   "features": {
     "title": "What the app does",
     "items": [
-      { "icon": "check", "title": "Dose tracking", "text": "Mark each dose as taken and see your history at a glance." },
-      { "icon": "bell", "title": "Smart reminders", "text": "Reminders keep the correct gap between one drop and the next." },
-      { "icon": "people", "title": "Caregiver and patient sync", "text": "A caregiver can manage and check on a loved one's doses." },
-      { "icon": "touch", "title": "Large, high-contrast buttons", "text": "Easy to see and tap, even with low vision or shaky hands." },
-      { "icon": "photo", "title": "Photos of your bottles", "text": "See a picture of the exact bottle so you pick up the right one." },
-      { "icon": "globe", "title": "Multiple languages", "text": "Use the app in English, Hindi or Tamil." }
+      {
+        "icon": "check",
+        "title": "Dose tracking",
+        "text": "Mark each dose as taken and see your history at a glance."
+      },
+      {
+        "icon": "bell",
+        "title": "Smart reminders",
+        "text": "Reminders keep the correct gap between one drop and the next."
+      },
+      {
+        "icon": "people",
+        "title": "Caregiver and patient sync",
+        "text": "A caregiver can manage and check on a loved one's doses."
+      },
+      {
+        "icon": "touch",
+        "title": "Large, high-contrast buttons",
+        "text": "Easy to see and tap, even with low vision or shaky hands."
+      },
+      {
+        "icon": "photo",
+        "title": "Photos of your bottles",
+        "text": "See a picture of the exact bottle so you pick up the right one."
+      },
+      {
+        "icon": "globe",
+        "title": "Multiple languages",
+        "text": "Use the app in English, Hindi or Tamil."
+      }
     ]
   },
-  "testimonials": { "title": "What people say" },
+  "testimonials": {
+    "title": "What people say"
+  },
   "download": {
     "title": "Get the app",
     "text": "Set up your first reminder in a few minutes.",
     "play": "Get it on Google Play",
     "apple": "Download on the App Store",
     "notifyTitle": "Get notified at launch",
-    "notifyText": "The app is almost ready. Leave your email and we will tell you the day it is available.",
+    "notifyText": "The app is under testing phase. Leave your email and we will tell you the day it is available for public users.",
     "email": "Email address",
     "notifyButton": "Notify me",
-    "notifyUnavailable": "Sign-up is not open yet. Please check back soon.",
     "done": "Thank you. We will email you at launch."
   },
-  "footer": { "about": "About", "privacy": "Privacy policy", "contact": "Contact", "rights": "All rights reserved." },
+  "footer": {
+    "about": "About",
+    "privacy": "Privacy policy",
+    "contact": "Contact",
+    "rights": "All rights reserved."
+  },
   "about": {
     "title": "About Ahaan",
     "summary": "A student who wanted eye medicine to be simpler for the people who depend on it.",
@@ -66,13 +124,16 @@
       "A second short paragraph on what he learned from patients and families."
     ],
     "builtTitle": "What he built",
-    "builtText": "Impact an Eye Every Day is a mobile app with loud reminders, correct spacing between drops, photos of each bottle, and a caregiver view. It works in English, Hindi and Tamil.",
+    "builtText": "iTester is a mobile app with loud reminders, correct spacing between drops, photos of each bottle, and a caregiver view. It works in English, Hindi and Tamil.",
     "builtLink": "See all features",
     "builtAlt": "The app home screen.",
-    "howTitle": "How it was built",
-    "mentorTitle": "Mentorship",
-    "mentor": "Built with guidance from mentor Shivam Sahu.",
     "ctaTitle": "Try the app, or say hello",
     "ctaText": "Questions, feedback or ideas are always welcome."
+  },
+  "video": {
+    "title": "See it in action",
+    "text": "A short walkthrough of the app.",
+    "frame": "Video: how the app works",
+    "play": "Play video"
   }
 }

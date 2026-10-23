@@ -14,7 +14,7 @@ const t = getDict().nav;
         <li><a class="link" href="/#features">{t.features}</a></li>
         <li><a class="link" href="/about">{t.about}</a></li>
       </ul>
-      <a href="/#download" class="btn btn-primary" data-download-nav>{t.download}</a>
+      <a href={site.apkUrl || '/#download'} download={site.apkUrl ? '' : undefined} class="btn btn-primary" data-download={site.apkUrl ? 'apk' : undefined}>{t.download}</a>
       <button type="button" class="btn btn-secondary md:hidden" aria-expanded="false" aria-controls="nav-links" data-menu>{t.menu}</button>
     </nav>
   </div>

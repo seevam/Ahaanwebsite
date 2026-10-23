@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PhoneMock from '../components/PhoneMock.astro';
 import Download from '../components/Download.astro';
-import { site, timeline } from '../config/site';
+import { site } from '../config/site';
 import { getDict } from '../i18n';
 const t = getDict();
 const a = t.about;
@@ -29,22 +29,6 @@ const a = t.about;
         <p class="mt-4">{a.builtText}</p>
         <div class="mt-6"><PhoneMock alt={a.builtAlt} variant="home" /></div>
         <p class="mt-6"><a class="link font-bold" href="/#features">{a.builtLink}</a></p>
-      </section>
-
-      {timeline.length > 0 && (
-        <section aria-labelledby="how-h">
-          <h2 id="how-h" class="text-3xl">{a.howTitle}</h2>
-          <ol class="mt-6 space-y-6 border-l-4 border-primary pl-6">
-            {timeline.map((m) => (
-              <li><p class="font-bold text-primary">{m.date}</p><h3 class="text-xl">{m.title}</h3><p class="mt-1">{m.text}</p></li>
-            ))}
-          </ol>
-        </section>
-      )}
-
-      <section aria-labelledby="mentor-h">
-        <h2 id="mentor-h" class="text-3xl">{a.mentorTitle}</h2>
-        <p class="mt-4">{a.mentor}</p>
       </section>
 
       <section aria-labelledby="cta-h">
