@@ -1,0 +1,48 @@
+---
+import { site, published } from '../config/site';
+import { getDict } from '../i18n';
+const t = getDict().download;
+const badge = 'btn btn-primary w-full sm:w-auto';
+---
+<section id="download" class="section bg-primary-tint" aria-labelledby="download-h">
+  <div class="container-page text-center">
+    <h2 id="download-h" class="text-3xl sm:text-4xl">{t.title}</h2>
+    <p class="mx-auto mt-4 max-w-xl">{t.text}</p>
+    {published ? (
+      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        {site.stores.play && <a class={badge} href={site.stores.play} target="_blank" rel="noopener" data-download="google_play">{t.play}<span class="sr-only"> (opens in a new tab)</span></a>}
+        {site.stores.apple && <a class={badge} href={site.stores.apple} target="_blank" rel="noopener" data-download="app_store">{t.apple}<span class="sr-only"> (opens in a new tab)</span></a>}
+      </div>
+    ) : (
+      <div class="mx-auto mt-8 max-w-md text-left">
+        <h3 class="text-xl">{t.notifyTitle}</h3>
+        <p class="mt-2">{t.notifyText}</p>
+        {site.notifyFormUrl ? (
+          <form action={site.notifyFormUrl} method="POST" class="mt-4 flex flex-col gap-3" data-notify>
+            <label for="notify-email" class="font-bold">{t.email}</label>
+            <input id="notify-email" name="email" type="email" required autocomplete="email" class="min-h-13 rounded-xl border-2 border-muted bg-white px-4 text-lg" />
+            <button type="submit" class="btn btn-primary">{t.notifyButton}</button>
+            <p role="status" class="font-bold" data-notify-status hidden>{t.done}</p>
+          </form>
+        ) : (
+          <p class="mt-4 font-bold">{t.notifyUnavailable}</p>
+        )}
+      </div>
+    )}
+  </div>
+</section>
+<script>
+  // Analytics: download_click with platform; notify sign-up without leaving the page.
+  document.querySelectorAll<HTMLElement>('[data-download]').forEach((el) =>
+    el.addEventListener('click', () =>
+      (window as any).plausible?.('download_click', { props: { platform: el.dataset.download } })));
+  document.querySelectorAll<HTMLFormElement>('form[data-notify]').forEach((form) =>
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        form.querySelector<HTMLElement>('[data-notify-status]')!.hidden = false;
+        (window as any).plausible?.('download_click', { props: { platform: 'notify_signup' } });
+      } catch { form.submit(); }
+    }));
+</script>

@@ -1,0 +1,47 @@
+---
+// Lightweight vector stand-in for real app screenshots (swap for optimised WebP/AVIF in /public/images).
+const { alt, variant = 'home' } = Astro.props as { alt: string; variant?: 'home' | 'add' | 'alarm' | 'caregiver' };
+const rows: Record<string, [string, string, string][]> = {
+  home: [['Dorzolamide', '8:00 am', 'Taken'], ['Timolol', '8:05 am', 'Next'], ['Latanoprost', '9:00 pm', 'Later']],
+  caregiver: [['Dorzolamide', '8:00 am', 'Taken'], ['Timolol', '8:05 am', 'Taken'], ['Latanoprost', '9:00 pm', 'Missed']],
+};
+---
+<figure class="mx-auto w-56 sm:w-64" role="img" aria-label={alt}>
+  <svg viewBox="0 0 240 480" width="240" height="480" class="h-auto w-full drop-shadow-xl" aria-hidden="true">
+    <rect x="4" y="4" width="232" height="472" rx="32" fill="#202124" />
+    <rect x="14" y="14" width="212" height="452" rx="24" fill="#fff" />
+    <rect x="14" y="14" width="212" height="56" rx="24" fill="#1557b0" />
+    <rect x="14" y="46" width="212" height="24" fill="#1557b0" />
+    <text x="30" y="50" fill="#fff" font-size="16" font-weight="700" font-family="sans-serif">
+      {variant === 'alarm' ? 'Time for your drops' : variant === 'add' ? 'Add eye drop' : 'Today'}
+    </text>
+    {rows[variant]?.map(([name, time, state], i) => (
+      <g transform={`translate(26 ${90 + i * 84})`}>
+        <rect width="188" height="70" rx="12" fill="#f8f9fa" stroke="#dadce0" />
+        <rect x="12" y="14" width="30" height="42" rx="6" fill="#e8f0fe" stroke="#1557b0" />
+        <text x="52" y="32" font-size="14" font-weight="700" fill="#202124" font-family="sans-serif">{name}</text>
+        <text x="52" y="52" font-size="13" fill="#4a4f55" font-family="sans-serif">{time} · {state}</text>
+      </g>
+    ))}
+    {variant === 'alarm' && (
+      <g font-family="sans-serif" font-weight="700" text-anchor="middle">
+        <circle cx="120" cy="150" r="44" fill="#e8f0fe" stroke="#1557b0" stroke-width="3" />
+        <text x="120" y="156" font-size="18" fill="#1557b0">8:05</text>
+        <rect x="34" y="240" width="172" height="64" rx="14" fill="#1557b0" />
+        <text x="120" y="280" font-size="22" fill="#fff">Taken</text>
+        <rect x="34" y="322" width="172" height="64" rx="14" fill="#fff" stroke="#1557b0" stroke-width="3" />
+        <text x="120" y="362" font-size="22" fill="#1557b0">Snooze</text>
+      </g>
+    )}
+    {variant === 'add' && (
+      <g font-family="sans-serif">
+        <rect x="26" y="96" width="188" height="48" rx="10" fill="#fff" stroke="#5f6368" />
+        <text x="38" y="126" font-size="15" fill="#4a4f55">Medicine name</text>
+        <rect x="26" y="160" width="188" height="120" rx="10" fill="#f8f9fa" stroke="#dadce0" stroke-dasharray="6 4" />
+        <text x="120" y="226" font-size="15" text-anchor="middle" fill="#4a4f55">Photo of the bottle</text>
+        <rect x="26" y="320" width="188" height="56" rx="14" fill="#1557b0" />
+        <text x="120" y="356" font-size="20" font-weight="700" text-anchor="middle" fill="#fff">Save</text>
+      </g>
+    )}
+  </svg>
+</figure>

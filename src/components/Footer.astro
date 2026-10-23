@@ -1,0 +1,16 @@
+---
+import { site } from '../config/site';
+import { getDict } from '../i18n';
+const t = getDict().footer;
+---
+<footer class="border-t border-line bg-surface px-4 py-10">
+  <div class="container-page flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <p class="font-bold">{site.name}</p>
+    <ul class="flex flex-wrap gap-x-6 gap-y-2">
+      <li><a class="link" href="/about">{t.about}</a></li>
+      <li><a class="link" href={`mailto:${site.email}`}>{site.email}</a></li>
+      <li><a class="link" href="/privacy">{t.privacy}</a></li>
+    </ul>
+    <p class="text-base text-muted">© {new Date().getFullYear()} {site.name}. {t.rights}</p>
+  </div>
+</footer>

@@ -1,0 +1,41 @@
+---
+import { site } from '../config/site';
+import { getDict } from '../i18n';
+const t = getDict().nav;
+---
+<header class="sticky top-0 z-40 border-b border-line bg-white">
+  <div class="container-page flex items-center justify-between gap-3 px-4 py-3">
+    <a href="/" class="flex items-center gap-2 font-bold text-primary no-underline">
+      <svg aria-hidden="true" class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span class="text-base leading-tight sm:text-lg">{site.name}</span>
+    </a>
+    <nav aria-label="Main" class="flex items-center gap-2">
+      <ul id="nav-links" class="hidden items-center gap-6 md:flex" data-links>
+        <li><a class="link" href="/#features">{t.features}</a></li>
+        <li><a class="link" href="/about">{t.about}</a></li>
+      </ul>
+      <a href="/#download" class="btn btn-primary" data-download-nav>{t.download}</a>
+      <button type="button" class="btn btn-secondary md:hidden" aria-expanded="false" aria-controls="nav-links" data-menu>{t.menu}</button>
+    </nav>
+  </div>
+</header>
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-menu]')!;
+  const links = document.querySelector<HTMLElement>('[data-links]')!;
+  const set = (open: boolean) => {
+    btn.setAttribute('aria-expanded', String(open));
+    links.classList.toggle('hidden', !open);
+    links.classList.toggle('absolute', open);
+    links.classList.toggle('flex-col', open);
+    links.classList.toggle('items-start', open);
+    links.classList.toggle('left-0', open);
+    links.classList.toggle('right-0', open);
+    links.classList.toggle('top-full', open);
+    links.classList.toggle('bg-white', open);
+    links.classList.toggle('p-4', open);
+    links.classList.toggle('border-b', open);
+  };
+  btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { set(false); btn.focus(); } });
+  links.addEventListener('click', () => set(false));
+</script>
