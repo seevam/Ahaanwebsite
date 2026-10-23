@@ -17,3 +17,11 @@ npm run build    # static output in dist/
 - Replace `/privacy` with the real policy. Replace `public/og-image.png` with final artwork.
 
 Deploy: connect the repo to Vercel or Netlify (build `npm run build`, output `dist`).
+
+## Deploying on Vercel
+1. Import `seevam/Ahaanwebsite` at vercel.com/new. Framework (Astro), build command and output are preset by `vercel.json`.
+2. Add environment variables from `.env.example` (Project Settings → Environment Variables). Set `PUBLIC_SITE_URL` to the final domain; without it the Vercel production domain is used.
+3. Deploy. Every PR gets a preview URL; `main` deploys to production.
+4. Add your custom domain under Settings → Domains.
+
+Security headers, long-lived asset caching, `sitemap-index.xml` and `robots.txt` are already configured.
